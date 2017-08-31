@@ -2,25 +2,26 @@ require("./lib/social");
 require("./lib/popcorn");
 
 $(document).ready(function(){
-			var popcorn = Popcorn("#audiotrack");
+	var popcorn = Popcorn("#audiotrack");
 
-			//generate popcorn code
-			$('#audio-text p').each(function(i){
-				var start = $(this).attr('data-start');
-				var end = $(this).attr('data-end');
+	//generate popcorn code
+	$('#audio-text p').each(function(i){
+		var start = $(this).attr('data-start');
+		var end = $(this).attr('data-end');
 
-				popcorn.code({
-					start: start,
-					end: end,
-					onStart: function(options) {
-						beginLine(i);
-					},
-					onEnd: function(options) {
-						endLine();
-					}
-				});
-			})
+		popcorn.code({
+			start: start,
+			end: end,
+			onStart: function(options) {
+				beginLine(i);
+			},
+			onEnd: function(options) {
+				endLine();
+			}
 		});
+	});
+	audioPlay();
+});
 
 
 		function beginLine(num) {
@@ -52,6 +53,27 @@ $(document).ready(function(){
 		var title = document.getElementById('title');
 		var article = document.getElementById('article');
 
+		function audioPlay(){
+			var audio = document.getElementById('audiotrack');
+			console.log(audio);
+			
+			var wavesurfer = WaveSurfer.create({
+			  container: '#waveform',
+			  waveColor: '#222222',
+			  cursorWidth: 0,
+			  normalize:true,
+			  interact: false,
+			  barWidth:1,
+			  height:100,
+			  progressColor: '#b38600'
+			});
+			wavesurfer.load('./assets/audio/intro-call.mp3');
+			audio.play();
+			wavesurfer.on('ready', function () {
+		    wavesurfer.play();
+			});
+		}
+
 		document.getElementById('mute').addEventListener('click', function(){
 	    audio.muted = !audio.muted;
 	    this.classList.toggle('unmute');
@@ -76,3 +98,8 @@ $(document).ready(function(){
           scrollTop: $('#article').offset().top-60
       }, 500);
 		});
+
+	
+
+
+

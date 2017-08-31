@@ -7,6 +7,7 @@
     <meta name="__sync_contentCategory" content="meterA">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.3/wavesurfer.min.js"></script>
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
     <%= t.include("partials/_head.html") %>
   </head>
@@ -18,7 +19,7 @@
 
     <div id="intro">
   
-      <audio id="audiotrack" autoplay controls style="display: none;" muted preload="auto"  src="./assets/audio/intro-call.mp3">
+      <audio id="audiotrack" style="display: none;" muted preload="auto"  src="./assets/audio/intro-call.mp3">
       </audio>
 
       <div id="intro-text">
@@ -30,15 +31,15 @@
           <p data-start="21.5" data-end="23">"Hello?"<br><span class="oncall">Dispatcher</span></p>
           <p data-start="26" data-end="27">"Hello?"<br><span class="oncall">Dispatcher</span></p>
           <div id="title">
-          <h1>Cecilia Lam Title Here</h1>
-          <div class="byline">By Vivian Ho | Sept. 17, 2017</div>
-          <div class="deck">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
-        </div>
-        </div>
-        
+            <h1>Cecilia Lam Title Here</h1>
+            <div class="byline">By Vivian Ho | Sept. 17, 2017</div>
+            <div class="deck">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+          </div>
+        </div>  
       </div>
-      
 
+      <div id="waveform"></div>
+            
       <div class="controls">
         <div id="mute" class="mute"><i class="fa fa-volume-off" aria-hidden="true"></i><i class="fa fa-volume-up" aria-hidden="true"></i></div>
         <div id="restart"><i class="fa fa-undo" aria-hidden="true"></i></div>
@@ -48,6 +49,7 @@
     </div>
 
     <div id="article">
+
       <p class="p1"><span class="s1">On the other end of the line, Cecilia lay crumpled, shot in the head at age 35 by her drunken ex-boyfriend, who immediately turned the gun on himself.</span></p>
 <p class="p1"><span class="s1">The last call of her life had been the eighth she made to 911 in a span of nine hours.</span></p>
 <p class="p1"><span class="s1">From the evening of Oct. 9, 2014, to the early morning of Oct. 10, Lam called repeatedly from the South of Market apartment she shared with four roommates, asking for police to protect her from 29-year-old Cedric Young Jr., with whom she was engaged in a volatile breakup.</span></p>
