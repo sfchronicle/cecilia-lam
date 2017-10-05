@@ -299,6 +299,7 @@ text {
     float: right;
     margin: 0 6px;
     padding: 4px 2px;
+
     a {
       color: @gray-blue;
     }
@@ -376,9 +377,9 @@ header {
 
 .caption {
   text-align: left;
-  font-family: @med-graphics;
+  font-family: @block-graphics;
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: 0;
   padding: 0 10px;
   max-width: 100%;
   &.landing {
@@ -417,8 +418,22 @@ header {
   max-width: 730px;
   margin: 2em auto;
 
+  .shadow{
+    box-shadow: 0px 0px 4px 2px #ccc;
+  }
+
+  &.small{
+    max-width:250px;
+  }
+
+  &.vertical{
+    max-width:420px;
+    padding:0 10px;
+  }
+
   .caption{
     padding:0;
+    margin:0;
 
       @media @text-width{
         padding:0 10px;
@@ -427,9 +442,13 @@ header {
 }
 
 .inline-graphic {
-    max-width: 640px;
+    max-width: 900px;
     margin: 2em auto;
-    padding: 0 10px;
+    padding: 0 9px;
+
+    img{
+      width:100%;
+    }
 }
 .too-big {
   text-align: center;
@@ -446,10 +465,22 @@ header {
   max-width: 735px;
   width: 100%;
   margin: 0 auto;
+
+  &.small{
+    max-width:600px;
+  }
 }
 
 .float-img {
     max-width: 420px;
+    img{
+      width:100%;
+    }
+
+    &.small{
+      max-width:200px;
+    }
+
     &.vertical {
       max-width: 300px;
     }
@@ -490,6 +521,8 @@ header {
       max-width: 600px;
     }
 }
+
+
 
 // video embed code ------------------------------------
 
@@ -544,7 +577,7 @@ header {
 footer {
   background: @charcoal;
   opacity: 0.95;
-  padding: 0 10px;
+  padding: 0 10px 40px;
   position: relative;
   z-index: 99;
   margin-top: 10px;
@@ -583,5 +616,9 @@ footer {
   }
   .entry {
     padding-bottom: 10px;
+  }
+
+  .fa{
+    color: #333;
   }
 }
